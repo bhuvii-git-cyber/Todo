@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from todo.models import Task
 def home(request):
-    return render(request,'home.html')
+    tasks=Task.objects.all().order_by('-updated_at')
+    
+    context={
+        'data':tasks,
+    }    
+   
+    return render(request,'home.html',context)
+    
