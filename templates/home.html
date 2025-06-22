@@ -35,9 +35,9 @@
                             <div class="card-body">
                                 <p>{{ i.task }}</p>
                                 <span style="position: relative; float: right;">
-                                    <a class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
-                                    <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                    <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                    <a href="{% url 'mark_done' i.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
+                                    <a href="{%url 'delete' i.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="{% url 'edit' i.pk %}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                                 </span>
                             </div>
                         </div>
@@ -53,6 +53,7 @@
                         <div class="card m-1">
                             <div class="card-body">
                                 <p>{{ i.task }}</p>
+                                <a href="{% url 'mark_undone' i.pk %}" class="btn btn-warning"><i class="fa fa-check"></i> Mark as UnDone</a>
                             </div>
                         </div>
                     {% endif %}
